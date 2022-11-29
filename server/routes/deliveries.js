@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 
 router.route('/').get((req, res) => {
-  Delivery.find().select({'robotname duration date deliveryStatus'})
+  Delivery.find().select('robotname duration date deliveryStatus')
     .then(deliveries => res.json(deliveries))
     .catch(err => res.status(400).json('Error: ' + err));
 });
