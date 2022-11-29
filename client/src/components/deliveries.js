@@ -56,7 +56,6 @@ export default class DeliveriesList extends Component {
           <thead className="thead-light">
             <tr style={{fontSize:'1.5rem', color:'burlywood'}}>
               <th>Robotname</th>
-              <th>Description</th>
               <th>Duration</th>
               <th>Date</th>
               <th>Status</th>
