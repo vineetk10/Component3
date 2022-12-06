@@ -7,13 +7,13 @@ require('dotenv').config();
 var app = express();
 const port = process.env.PORT || 4000;
 app.use(cors({
-  origin: ["http://34.203.243.32:3000"],
+  origin: ["http://robot-lb-833619706.us-east-1.elb.amazonaws.com:3000","http://44.195.79.70:3000","http://34.203.243.32:3000"],
   credentials: true,
 }));
 
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://34.203.243.32:3000");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
