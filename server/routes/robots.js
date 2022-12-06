@@ -12,12 +12,18 @@ router.route('/robots').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/robotsDetails').post((req, res) => {
+  Robot.find({robotname: req.body.robotName})
+    .then(robots => res.json(robots))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
   console.log(req.body)
   const robotname = req.body.robotname;
   const robottype =req.body.robottype;
-
-  const newRobot = new Robot({robotname,robottype});
+  const manufacturer = req.body.manufacturer;
+  const newRobot = new Robot({robotname,robottype, manufacturer});
 
   console.log(newRobot);
 
